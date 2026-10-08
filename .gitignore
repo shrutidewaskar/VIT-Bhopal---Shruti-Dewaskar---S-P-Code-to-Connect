@@ -21,3 +21,9 @@ htmlcov/
 Thumbs.db
 .vscode/
 .idea/
+
+# Large raw datasets
+*.csv
+FinancialPhraseBank/
+data/eval/
+data/signals_real_tweets.jsonl

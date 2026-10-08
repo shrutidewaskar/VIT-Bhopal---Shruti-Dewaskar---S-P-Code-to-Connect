@@ -1,0 +1,80 @@
+{
+  "sentiment": {
+    "lexicon": {
+      "n": 1500,
+      "accuracy": 0.4153,
+      "macro_f1": 0.3342,
+      "per_class": {
+        "negative": {
+          "precision": 0.6363636363636364,
+          "recall": 0.084,
+          "f1-score": 0.14840989399293286,
+          "support": 500.0
+        },
+        "neutral": {
+          "precision": 0.3908713692946058,
+          "recall": 0.942,
+          "f1-score": 0.5524926686217009,
+          "support": 500.0
+        },
+        "positive": {
+          "precision": 0.48034934497816595,
+          "recall": 0.22,
+          "f1-score": 0.3017832647462277,
+          "support": 500.0
+        },
+        "accuracy": 0.41533333333333333,
+        "macro avg": {
+          "precision": 0.5025281168788027,
+          "recall": 0.41533333333333333,
+          "f1-score": 0.3342286091202871,
+          "support": 1500.0
+        },
+        "weighted avg": {
+          "precision": 0.5025281168788027,
+          "recall": 0.41533333333333333,
+          "f1-score": 0.3342286091202872,
+          "support": 1500.0
+        }
+      }
+    },
+    "finbert": {
+      "n": 1500,
+      "accuracy": 0.918,
+      "macro_f1": 0.9177,
+      "per_class": {
+        "negative": {
+          "precision": 0.9566074950690335,
+          "recall": 0.97,
+          "f1-score": 0.9632571996027806,
+          "support": 500.0
+        },
+        "neutral": {
+          "precision": 0.9112050739957717,
+          "recall": 0.862,
+          "f1-score": 0.8859198355601233,
+          "support": 500.0
+        },
+        "positive": {
+          "precision": 0.8865384615384615,
+          "recall": 0.922,
+          "f1-score": 0.903921568627451,
+          "support": 500.0
+        },
+        "accuracy": 0.918,
+        "macro avg": {
+          "precision": 0.9181170102010889,
+          "recall": 0.918,
+          "f1-score": 0.9176995345967849,
+          "support": 1500.0
+        },
+        "weighted avg": {
+          "precision": 0.9181170102010889,
+          "recall": 0.918,
+          "f1-score": 0.917699534596785,
+          "support": 1500.0
+        }
+      }
+    }
+  }
+}

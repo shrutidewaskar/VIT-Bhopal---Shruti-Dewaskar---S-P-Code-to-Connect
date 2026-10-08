@@ -20,7 +20,10 @@ def load_sentiment(path, n, seed=42):
     df["sentiment"] = df["sentiment"].astype(str).str.strip().str.lower()
     df = df[df["sentiment"].isin(["positive", "negative", "neutral"])]
     if len(df) > n:  # stratified sample
-        df = df.groupby("sentiment", group_keys=False).apply(lambda g: g.sample(min(len(g), n // 3), random_state=seed))
+        dfs = []
+        for _, g in df.groupby("sentiment"):
+            dfs.append(g.sample(min(len(g), n // 3), random_state=seed))
+        df = pd.concat(dfs, ignore_index=True)
     return df.reset_index(drop=True)
 
 def eval_sentiment(df, backend):
