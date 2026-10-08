@@ -30,3 +30,17 @@ class SentimentModel:
             if t in POS: pos, neg = (pos, neg + 1) if flip else (pos + 1, neg)
             elif t in NEG: pos, neg = (pos + 1, neg) if flip else (pos, neg + 1)
         return round((pos - neg) / (pos + neg + 1), 4), round(min(1.0, (pos + neg) / 3), 4)
+
+    def score_batch(self, texts: list[str], batch_size: int = 32):
+        """Batched scoring for evaluation. Returns list of (score, confidence, label)."""
+        out = []
+        if self.pipe is not None:
+            for i in range(0, len(texts), batch_size):
+                for res in self.pipe(texts[i:i + batch_size]):
+                    p = {d["label"].lower(): d["score"] for d in res}
+                    out.append((round(p.get("positive", 0) - p.get("negative", 0), 4), round(max(p.values()), 4), max(p, key=p.get)))
+            return out
+        for t in texts:
+            s, c = self.score(t)
+            out.append((s, c, "positive" if s > 0.2 else "negative" if s < -0.2 else "neutral"))
+        return out
